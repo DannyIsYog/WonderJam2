@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ParallaxEndPos
+  - Hero
+  - Despawner
   layers:
   - Default
   - TransparentFX
