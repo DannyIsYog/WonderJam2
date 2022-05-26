@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.Pool;
 
 public class Structure : MonoBehaviour
 {
-    [SerializeField] private GameEvent OnHeroCollision;
-
+    private StructureObject _structureObject;
     private float _speed;
     private float _startPos;
     private Transform _transform;
-    private ObjectPool<Structure> _pool;
 
     private void Awake()
     {
@@ -25,20 +22,10 @@ public class Structure : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Despawner"))
-            _pool.Release(this);
-        if (col.CompareTag("Hero")) 
-            OnHeroCollision.Raise();
+            Destroy(gameObject);
+        if (col.CompareTag("Hero"))
+            _structureObject.OnHeroCollision.Raise();
     }
 
-    public void SetPool(ObjectPool<Structure> pool)
-    {
-        _pool = pool;
-    }
-
-    public void SetStartPos(Vector3 pos)
-    {
-        _transform.position = pos;
-        _speed = 0;
-        _startPos = pos.x;
-    }
+    public void SetStructureObject(StructureObject structureObject) => _structureObject = structureObject;
 }

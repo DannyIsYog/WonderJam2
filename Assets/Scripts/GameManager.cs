@@ -1,13 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.Pool;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float heroMoveSpeed = -5;
-    [SerializeField] private GameObject structurePrefab;
     [SerializeField] private Transform structureSpawnPos;
+    [SerializeField] private StructureObject[] structures;
 
-    public ObjectPool<Structure> structurePool;
     public static GameManager instance { get; private set; }
 
     public float HeroMoveSpeed
@@ -15,6 +14,8 @@ public class GameManager : MonoBehaviour
         get => heroMoveSpeed;
         set => heroMoveSpeed = value;
     }
+
+    private readonly Dictionary<StructureObject.Type, StructureObject> _structureDic = new();
 
     private void Awake()
     {
@@ -27,29 +28,20 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        structurePool = new ObjectPool<Structure>(CreateStructure, OnTakeStructureFromPool, OnReturnStructureToPool);
+        foreach (StructureObject structureObject in structures)
+            _structureDic[structureObject.type] = structureObject;
     }
 
-    public Structure CreateStructure()
+    private void CreateStructure(StructureObject.Type type)
     {
-        Structure structure = Instantiate(structurePrefab, structureSpawnPos).GetComponent<Structure>();
-        structure.SetPool(structurePool);
-        return structure;
+        StructureObject obj = _structureDic[type];
+        Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
+        structure.SetStructureObject(obj);
     }
 
-    private void OnTakeStructureFromPool(Structure structure)
-    {
-        structure.gameObject.SetActive(true);
-    }
-
-    private void OnReturnStructureToPool(Structure structure)
-    {
-        structure.SetStartPos(structureSpawnPos.position);
-        structure.gameObject.SetActive(false);
-    }
-
-    public void CreateShop()
-    {
-        structurePool.Get();
-    }
+    public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
+    public void CreateBoss() => CreateStructure(StructureObject.Type.Boss);
+    public void CreateEnemy() => CreateStructure(StructureObject.Type.Enemy);
+    public void CreateHorde() => CreateStructure(StructureObject.Type.Horde);
+    public void CreateShop() => CreateStructure(StructureObject.Type.Shop);
 }
