@@ -19,7 +19,7 @@ public class ItemObject : ScriptableObject
     [Serializable]
     public class Stat
     {
-        public string statName;
+        public ItemStats.Stats statName;
         public float statValue;
 
         public float GenRandomStatVal(float min, float max) => Random.Range(min, max);

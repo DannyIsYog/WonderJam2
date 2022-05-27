@@ -16,5 +16,9 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: aa63456166df0944a86294d4ee244f05, type: 3}
   type: 1
   stats:
-  - statName: Rusty
-    statValue: 10
+  - statName: 8
+    statValue: 20
+  - statName: 11
+    statValue: 5
+  - statName: 12
+    statValue: 1
