@@ -12,8 +12,6 @@
         Protection,
         Rusty,
         Sexy,
-        Strength,
-        Ugly,
-        Useless,
+        Strength
     }
 }

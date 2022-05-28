@@ -1,25 +1,26 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+
 using static ItemStats;
 
 public class ShopAI : MonoBehaviour
 {
-    [SerializeField] private Stats[] _importantStats;
+    [SerializeField] private float _discardRate = 0.3f;
     private Dictionary<Stats, float> _weights;
 
     private void OnEnable()
     {
+        Stats[] allStats = (Stats[]) System.Enum.GetValues(typeof(Stats));
         _weights = new Dictionary<Stats, float>();
-        foreach (Stats stat in _importantStats)
-            _weights.Add(stat, Random.value);
-
-        int maxDiscard = _importantStats.Length / 2;
-        int statsToDiscard = Random.Range(0, maxDiscard);
-        Debug.Log("Discarding " + statsToDiscard + " stats");
-        for (int i = 0; i < statsToDiscard; i++)
+        foreach (Stats stat in allStats)
         {
-            Stats key = _importantStats[Random.Range(0, _importantStats.Length)];
-            _weights.Remove(key);
+            _weights.Add(stat, Random.value < _discardRate ? 0 : Random.Range(-1f, 1f));
+        }
+
+        // Print the name of each stat and its weight
+        foreach (KeyValuePair<Stats, float> stat in _weights)
+        {
+            Debug.Log(stat.Key + ": " + stat.Value);
         }
     }
 
