@@ -2,16 +2,15 @@
 {
     public enum Stats
     {
-        Agile,
-        Broken,
-        Charming,
-        Damage,
+        //General
+        Level,
+
         Durability,
-        Hardness,
-        Heavy,
         Protection,
-        Rusty,
-        Sexy,
-        Strength
+        VisualAttractiveness,
+        NameAttractiveness,
+        //Weapons
+        Damage,
+        //Armor
     }
 }
