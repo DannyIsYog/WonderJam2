@@ -4,13 +4,15 @@
     {
         //General
         Level,
-
         Durability,
-        Protection,
-        VisualAttractiveness,
+        Sexyness,
         NameAttractiveness,
+
         //Weapons
         Damage,
+
         //Armor
+        Protection,
+        Health,
     }
 }
