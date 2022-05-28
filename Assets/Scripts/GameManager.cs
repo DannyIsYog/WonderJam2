@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
+using CustomArrayExtensions;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float heroMoveSpeed = -5;
     [SerializeField] private Transform structureSpawnPos;
     [SerializeField] private StructureObject[] structures;
+    [SerializeField] private EnemyObject[] enemies;
 
     public static GameManager instance { get; private set; }
-
-    public float HeroMoveSpeed
-    {
-        get => heroMoveSpeed;
-        set => heroMoveSpeed = value;
-    }
 
     private readonly Dictionary<StructureObject.Type, StructureObject> _structureDic = new();
 
@@ -28,20 +23,33 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach (StructureObject structureObject in structures)
-            _structureDic[structureObject.type] = structureObject;
+        foreach (StructureObject structureObj in structures)
+            _structureDic[structureObj.type] = structureObj;
+    }
+
+    private void CreateStructure(StructureObject obj)
+    {
+        Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
+        structure.StructureObject = obj;
     }
 
     private void CreateStructure(StructureObject.Type type)
     {
-        StructureObject obj = _structureDic[type];
-        Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
-        structure.SetStructureObject(obj);
+        CreateStructure(_structureDic[type]);
     }
 
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
     public void CreateBoss() => CreateStructure(StructureObject.Type.Boss);
-    public void CreateEnemy() => CreateStructure(StructureObject.Type.Enemy);
+    public void CreateEnemy() => CreateStructure(enemies.GetRandom());
     public void CreateHorde() => CreateStructure(StructureObject.Type.Horde);
     public void CreateShop() => CreateStructure(StructureObject.Type.Shop);
+}
+
+namespace CustomArrayExtensions 
+{
+    public static class ArrayExtensions {
+        public static T GetRandom<T>(this T[] array) {
+            return array[Random.Range(0, array.Length)];
+        }
+    }
 }

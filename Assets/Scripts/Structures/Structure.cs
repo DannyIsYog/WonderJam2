@@ -2,10 +2,13 @@
 
 public class Structure : MonoBehaviour
 {
-    private StructureObject _structureObject;
+    [SerializeField] private HeroData heroData;
+
     private float _speed;
     private float _startPos;
     private Transform _transform;
+
+    public StructureObject StructureObject { get; set; }
 
     private void Awake()
     {
@@ -15,7 +18,7 @@ public class Structure : MonoBehaviour
 
     private void Update()
     {
-        _speed += GameManager.instance.HeroMoveSpeed * Time.deltaTime;
+        _speed += heroData.moveSpeed * Time.deltaTime;
         _transform.position = new Vector3(_startPos + _speed, _transform.position.y, _transform.position.z);
     }
 
@@ -24,8 +27,6 @@ public class Structure : MonoBehaviour
         if (col.CompareTag("Despawner"))
             Destroy(gameObject);
         if (col.CompareTag("Hero"))
-            _structureObject.OnHeroCollision.Raise();
+            StructureObject.OnHeroCollision.Raise();
     }
-
-    public void SetStructureObject(StructureObject structureObject) => _structureObject = structureObject;
 }
