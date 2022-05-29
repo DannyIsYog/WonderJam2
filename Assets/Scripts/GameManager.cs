@@ -31,35 +31,33 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemy", 2, 2);
     }
 
-    private void CreateStructure(StructureObject obj)
-    {
-        Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
-        structure.StructureObject = obj;
-    }
-
-    private void CreateStructure(StructureObject.Type type)
-    {
-        CreateStructure(_structureDic[type]);
-    }
-
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
+
     public void CreateBoss() => CreateStructure(StructureObject.Type.Boss);
+
     public void CreateEnemy()
     {
         if (Mathf.Approximately(heroData.moveSpeed, 0f)) return;
         CreateStructure(enemies.GetRandom());
     }
+
     public void CreateHorde() => CreateStructure(StructureObject.Type.Horde);
+
     public void CreateShop() => CreateStructure(StructureObject.Type.Shop);
+
+    private void CreateStructure(StructureObject.Type type) => CreateStructure(_structureDic[type]);
+
+    private void CreateStructure(StructureObject obj)
+    {
+        Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
+        structure.StructureObject = obj;
+    }
 }
 
 namespace CustomArrayExtensions
 {
     public static class ArrayExtensions
     {
-        public static T GetRandom<T>(this T[] array)
-        {
-            return array[Random.Range(0, array.Length)];
-        }
+        public static T GetRandom<T>(this T[] array) => array[Random.Range(0, array.Length)];
     }
 }

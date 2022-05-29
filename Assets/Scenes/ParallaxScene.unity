@@ -4556,6 +4556,7 @@ GameObject:
   - component: {fileID: 1992233082}
   - component: {fileID: 1992233083}
   - component: {fileID: 1992233084}
+  - component: {fileID: 1992233086}
   - component: {fileID: 1992233085}
   m_Layer: 0
   m_Name: Hero
@@ -4673,6 +4674,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechBubblePrefab: {fileID: 8787856881814098674, guid: ac1f91525b63bb444bef46f98796a866, type: 3}
+--- !u!95 &1992233086
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992233079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2411f85a77965e94981008c7551ae53e, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2066854574
 GameObject:
   m_ObjectHideFlags: 0

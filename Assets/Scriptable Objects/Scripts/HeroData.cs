@@ -11,6 +11,7 @@ public class HeroData : ScriptableObject
     public int baseDamage = 20;
     [Tooltip("Seconds between each attack")]
     public float baseAttackSpeed = 2;
+    public int money;
     public AnimationCurve experienceLevelCurve;
     public List<ItemObject> acquiredItems;
 

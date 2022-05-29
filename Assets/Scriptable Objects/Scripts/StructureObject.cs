@@ -9,6 +9,7 @@ public class StructureObject : ScriptableObject
         Boss,
         Enemy,
         Horde,
+        Hospital,
         Shop
     }
 
