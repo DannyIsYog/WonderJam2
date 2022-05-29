@@ -15,6 +15,7 @@ public class ItemObject : ScriptableObject
     public Sprite sprite;
     public Type type;
     public Stat[] stats;
+    public int price;
 
     [Serializable]
     public class Stat
