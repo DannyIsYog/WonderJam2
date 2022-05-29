@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -33,6 +32,7 @@ public class HeroData : ScriptableObject
         currentAttackSpeed = baseAttackSpeed;
         currentExperience = currentLevel = _previousExperience = 0;
         _maxLevel = (int)experienceLevelCurve[experienceLevelCurve.length - 1].time;
+        money = 0;
         acquiredItems.Clear();
         UpdateExperience(0);
     }
@@ -53,6 +53,8 @@ public class HeroData : ScriptableObject
         _nextExperience = (int)experienceLevelCurve.Evaluate(currentLevel + 1);
         remainingExperience = _nextExperience - currentExperience;
     }
+
+    public void HealHero(int value) => currentHealth = Mathf.Clamp(value, 0, maxHealth);
     
     [CustomEditor(typeof(HeroData))]
     private class HeroDataEditor : Editor

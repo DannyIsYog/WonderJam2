@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CustomArrayExtensions;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EnemyObject[] enemies;
 
     [SerializeField] private HeroData heroData;
+    [SerializeField] private TextMeshProUGUI goldText;
 
     public static GameManager instance { get; private set; }
 
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
         foreach (StructureObject structureObj in structures)
             _structureDic[structureObj.type] = structureObj;
 
-        InvokeRepeating("CreateEnemy", 2, 2);
+        InvokeRepeating(nameof(CreateEnemy), 2, 2);
     }
 
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void CreateShop() => CreateStructure(StructureObject.Type.Shop);
 
+    public void CreateHospital() => CreateStructure(StructureObject.Type.Hospital);
+
     private void CreateStructure(StructureObject.Type type) => CreateStructure(_structureDic[type]);
 
     private void CreateStructure(StructureObject obj)
@@ -52,6 +56,8 @@ public class GameManager : MonoBehaviour
         Structure structure = Instantiate(obj.prefab, structureSpawnPos).GetComponent<Structure>();
         structure.StructureObject = obj;
     }
+
+    public void UpdateMoney() => goldText.text = heroData.money + " $";
 }
 
 namespace CustomArrayExtensions

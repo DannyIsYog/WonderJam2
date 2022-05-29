@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Objects/Enemy")]
 public class EnemyObject : StructureObject
@@ -12,6 +13,7 @@ public class EnemyObject : StructureObject
     public float attackSpeed = 1;
     public AnimationCurve experienceWhenKilled;
     public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(heroData.currentLevel);
+    public static int DroppedMoney => Random.Range(1, 20);
 
     private void Awake()
     {
