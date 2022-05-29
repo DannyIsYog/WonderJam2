@@ -70,7 +70,7 @@ public class EnemyCombat : MonoBehaviour
     private void EnemyDied()
     {
         _heroData.UpdateExperience(_enemyObject.CurrentExperienceWhenKilled);
-        _heroData.money += EnemyObject.DroppedMoney;
+        _heroData.money += _enemyObject.DroppedMoney;
         GameManager.instance.UpdateMoney();
         OnCombatEnd.Raise();
         Destroy(gameObject);
