@@ -20,7 +20,7 @@ MonoBehaviour:
   maxDropRate: 0
   enemyName: Manuel Guimaraes
   maxHealth: 50
-  baseDamage: 5
+  baseDamage: 2
   attackSpeed: 0.5
   experienceWhenKilled:
     serializedVersion: 2
@@ -46,3 +46,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  level: 0

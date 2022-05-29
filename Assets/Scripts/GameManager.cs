@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateHospital() => CreateStructure(StructureObject.Type.Hospital);
 
-    private void CreateStructure(StructureObject.Type type) => CreateStructure(_structureDic[type]);
+    public void CreateStructure(StructureObject.Type type) => CreateStructure(_structureDic[type]);
 
     private void CreateStructure(StructureObject obj)
     {

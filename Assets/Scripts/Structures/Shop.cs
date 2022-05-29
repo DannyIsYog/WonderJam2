@@ -11,6 +11,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private ItemObject[] items;
     [SerializeField] private Slot[] shopSlots;
 
+    public List<ItemObject> CurrentItemsInShop = new();
+
     private List<int> randList = new();
     private float time;
     
@@ -25,6 +27,7 @@ public class Shop : MonoBehaviour
             randList.Add(rand);
             
             ItemObject item = items[rand];
+            CurrentItemsInShop.Add(item);
             slot.imageObj.sprite = item.sprite;
             slot.textNameObj.text = item.itemName;
             slot.textStatsObj.text = "";

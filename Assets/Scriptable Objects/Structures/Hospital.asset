@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cbd3e51d484f1ba1bae27c08e34873, type: 3}
   m_Name: Hospital
   m_EditorClassIdentifier: 
-  heroData: {fileID: 0}
-  type: 0
-  prefab: {fileID: 0}
-  OnHeroCollision: {fileID: 0}
+  heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
+  type: 4
+  prefab: {fileID: 2943361698793646252, guid: 99259728abe968f4bb0d6d1751efb714, type: 3}
+  OnHeroCollision: {fileID: 11400000, guid: 457425df81fec5148b8f6b91000c8818, type: 2}
   minDropRate: 0
   maxDropRate: 0
