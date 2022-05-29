@@ -30,7 +30,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 100
-      value: 100000
+      value: 100471.695
       inSlope: 2722.7864
       outSlope: 2722.7864
       tangentMode: 0
@@ -41,9 +41,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   acquiredItems: []
-  currentHealth: 0
+  currentHealth: 100
   currentDamage: 15
   currentAttackSpeed: 0.5
-  currentExperience: 463
-  remainingExperience: -348
-  currentLevel: 5
+  currentExperience: 0
+  remainingExperience: 2
+  currentLevel: 0

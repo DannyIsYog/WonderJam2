@@ -11,7 +11,7 @@ public class EnemyObject : StructureObject
     [Tooltip("Seconds between each attack")]
     public float attackSpeed = 1;
     public AnimationCurve experienceWhenKilled;
-    public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(heroData.currentLevel) + 5;
+    public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(heroData.currentLevel);
 
     private void Awake()
     {

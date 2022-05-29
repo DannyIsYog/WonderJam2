@@ -4707,6 +4707,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4e6ecabc7a90fc4e80c191b064f444d, type: 2}
   enemies:
   - {fileID: 11400000, guid: 6958745a45b682e4aad0dc7d157a0426, type: 2}
+  heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
 --- !u!4 &2066854576
 Transform:
   m_ObjectHideFlags: 0
