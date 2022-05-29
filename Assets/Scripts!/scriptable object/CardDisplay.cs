@@ -7,10 +7,7 @@ public class CardDisplay : MonoBehaviour
 {
     public Card card;
 
-    void Start()
-    {
-        Debug.Log(card.cardCost);
-    }
-
+    public Text Level;
+    public Text Cost;
 
 }
