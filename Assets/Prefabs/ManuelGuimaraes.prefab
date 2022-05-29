@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 962748545466911837}
   - component: {fileID: 1611440720903825672}
   - component: {fileID: 7370891190946544281}
-  - component: {fileID: 6523877882388687410}
   m_Layer: 0
   m_Name: ManuelGuimaraes
   m_TagString: Untagged
@@ -113,36 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnCombatEnd: {fileID: 11400000, guid: 784a48dae210c5448a1123c2efe02ee2, type: 2}
+  OnHeroDied: {fileID: 11400000, guid: 098409af3d1aa7245945d0d422fd8639, type: 2}
   heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
   animator: {fileID: 962748545466911837}
---- !u!114 &6523877882388687410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611440720903825675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9dafffc8bdd627499f3bff08fa282b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: f598579161ae03b4c9f19c5f705e8173, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7370891190946544281}
-        m_TargetAssemblyTypeName: EnemyCombat, Assembly-CSharp
-        m_MethodName: StartCombat
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &4257573290718372179
 GameObject:
   m_ObjectHideFlags: 0

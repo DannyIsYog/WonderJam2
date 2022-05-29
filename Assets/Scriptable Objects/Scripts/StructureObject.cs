@@ -12,6 +12,7 @@ public class StructureObject : ScriptableObject
         Shop
     }
 
+    public HeroData heroData;
     public Type type;
     public GameObject prefab;
     public GameEvent OnHeroCollision;

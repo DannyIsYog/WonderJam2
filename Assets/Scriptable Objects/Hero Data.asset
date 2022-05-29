@@ -15,10 +15,35 @@ MonoBehaviour:
   moveSpeed: -5
   maxHealth: 100
   baseDamage: 15
-  baseAttackSpeed: 2
+  baseAttackSpeed: 0.5
+  experienceLevelCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 100
+      value: 100000
+      inSlope: 2722.7864
+      outSlope: 2722.7864
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029450988
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   acquiredItems: []
-  currentHealth: 40
+  currentHealth: 0
   currentDamage: 15
-  currentAttackSpeed: 2
-  currentExperience: 0
-  currentLevel: 1
+  currentAttackSpeed: 0.5
+  currentExperience: 463
+  remainingExperience: -348
+  currentLevel: 5

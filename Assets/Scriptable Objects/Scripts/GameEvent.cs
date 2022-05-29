@@ -24,7 +24,7 @@ public class GameEvent : ScriptableObject
     }
 
     [CustomEditor(typeof(GameEvent))]
-    private class MyEditor : Editor
+    private class GameEventEditor : Editor
     {
         public override void OnInspectorGUI()
         {

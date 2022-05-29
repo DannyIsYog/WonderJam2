@@ -3,10 +3,11 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     [SerializeField] private GameEvent OnCombatEnd;
-    [SerializeField] private HeroData heroData;
+    [SerializeField] private GameEvent OnHeroDied;
     [SerializeField] private Animator animator;
 
     private EnemyObject _enemyObject;
+    private HeroData _heroData;
     private bool _combatStarted;
     private int _enemyHealth;
     private float _timeEnemy;
@@ -16,11 +17,13 @@ public class EnemyCombat : MonoBehaviour
     {
         _enemyObject = (EnemyObject)GetComponent<Structure>().StructureObject;
         _enemyHealth = _enemyObject.maxHealth;
+        _heroData = _enemyObject.heroData;
     }
 
-    public void StartCombat()
+    private void OnTriggerEnter(Collider col)
     {
-        _combatStarted = true;
+        if (col.CompareTag("Hero"))
+            _combatStarted = true;
     }
 
     private void Update()
@@ -35,8 +38,8 @@ public class EnemyCombat : MonoBehaviour
         if (_timeHero > 0) _timeHero -= Time.deltaTime;
         else
         {
-            _enemyHealth -= heroData.currentDamage;
-            _timeHero = heroData.currentAttackSpeed;
+            _enemyHealth -= _heroData.currentDamage;
+            _timeHero = _heroData.currentAttackSpeed;
             if (_enemyHealth <= 0) EnemyDied();
         }
     }
@@ -47,20 +50,21 @@ public class EnemyCombat : MonoBehaviour
         else
         {
             animator.Play("Attack");
-            heroData.currentHealth -= _enemyObject.baseDamage;
+            _heroData.currentHealth -= _enemyObject.baseDamage;
             _timeEnemy = _enemyObject.attackSpeed;
-            if (heroData.currentHealth <= 0) HeroDied();
+            if (_heroData.currentHealth <= 0) HeroDied();
         }
     }
 
     private void HeroDied()
     {
-        Debug.Log("Welp! Hero is dead. Now what?");
         _combatStarted = false;
+        OnHeroDied.Raise();
     }
 
     private void EnemyDied()
     {
+        _heroData.UpdateExperience(_enemyObject.CurrentExperienceWhenKilled);
         OnCombatEnd.Raise();
         Destroy(gameObject);
     }

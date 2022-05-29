@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cbd3e51d484f1ba1bae27c08e34873, type: 3}
   m_Name: Shop
   m_EditorClassIdentifier: 
+  heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
   type: 4
   prefab: {fileID: 4615699299536330548, guid: c44ff370efcab8a4f977c9ed63a42787, type: 3}
   OnHeroCollision: {fileID: 11400000, guid: 12890e577fc9cc742a1864a39f689b83, type: 2}
