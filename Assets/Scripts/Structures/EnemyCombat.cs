@@ -8,6 +8,7 @@ public class EnemyCombat : MonoBehaviour
 
     private EnemyObject _enemyObject;
     private HeroData _heroData;
+    private Animator _heroAnimator;
     private bool _combatStarted;
     private int _enemyHealth;
     private float _timeEnemy;
@@ -23,7 +24,10 @@ public class EnemyCombat : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Hero"))
+        {
             _combatStarted = true;
+            _heroAnimator = col.GetComponent<Animator>();
+        }
     }
 
     private void Update()
@@ -38,6 +42,7 @@ public class EnemyCombat : MonoBehaviour
         if (_timeHero > 0) _timeHero -= Time.deltaTime;
         else
         {
+            _heroAnimator.Play("Attack");
             _enemyHealth -= _heroData.currentDamage;
             _timeHero = _heroData.currentAttackSpeed;
             if (_enemyHealth <= 0) EnemyDied();
