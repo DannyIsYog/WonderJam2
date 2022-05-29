@@ -8,4 +8,5 @@ public class Card : ScriptableObject {
     public int cardLevel;    //defines how strong/good the card is
 
     public int Slot;
+    public CardTypes Type;
 }

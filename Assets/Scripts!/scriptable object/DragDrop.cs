@@ -44,7 +44,12 @@ public class DragDrop : MonoBehaviour
             }
             else if (deploy == 1)
             {
-                //deploy
+                if (GetComponent<CardDisplay>().Type == CardTypes.SHOP)
+                    GameManager.instance.CreateShop();
+                else if (GetComponent<CardDisplay>().Type == CardTypes.HORDE)
+                    GameManager.instance.CreateHorde();
+                //else if (GetComponent<CardDisplay>().Type == CardTypes.HOSPITAL)
+                    //GameManager.instance.CreateHospital();
                 //managerino.disableCS(n);
                 Destroy(gameObject);
             }

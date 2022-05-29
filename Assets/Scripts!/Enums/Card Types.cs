@@ -10,5 +10,7 @@ public enum CardTypes
     BOSS,
     TAVERN,
     BLACKSMITH,
+    HORDE,
+    HOSPITAL,
     COUNT
 }
