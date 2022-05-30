@@ -11,14 +11,19 @@ public class EnemyCombat : MonoBehaviour
     private Animator _heroAnimator;
     private bool _combatStarted;
     private int _enemyHealth;
+    public HP_BAR _enemyHPBar;
     private float _timeEnemy;
     private float _timeHero;
+
+    private int _enemyDamage;
 
     private void Start()
     {
         _enemyObject = (EnemyObject)GetComponent<Structure>().StructureObject;
         _enemyHealth = _enemyObject.maxHealth;
+        _enemyHPBar.SetMaxHealth(_enemyObject.maxHealth);
         _heroData = _enemyObject.heroData;
+        _enemyDamage = _enemyObject.baseDamage + 2 * GameManager.instance.enemyLevel;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -44,6 +49,7 @@ public class EnemyCombat : MonoBehaviour
         {
             _heroAnimator.Play("Attack");
             _enemyHealth -= _heroData.currentDamage;
+            _enemyHPBar.SetHealth(_enemyHealth);
             _timeHero = _heroData.currentAttackSpeed;
             if (_enemyHealth <= 0) EnemyDied();
         }
@@ -55,7 +61,7 @@ public class EnemyCombat : MonoBehaviour
         else
         {
             animator.Play("Attack");
-            _heroData.currentHealth -= _enemyObject.baseDamage;
+            _heroData.GetDamage(_enemyDamage);
             _timeEnemy = _enemyObject.attackSpeed;
             if (_heroData.currentHealth <= 0) HeroDied();
         }

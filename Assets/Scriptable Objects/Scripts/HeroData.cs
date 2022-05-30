@@ -21,8 +21,10 @@ public class HeroData : ScriptableObject
     public int currentExperience;
     public int remainingExperience;
     public int currentLevel;
-    
+
     private int _maxLevel, _previousExperience, _nextExperience;
+
+    public HP_BAR health_bar;
 
     private void OnEnable()
     {
@@ -43,7 +45,7 @@ public class HeroData : ScriptableObject
     public void UpdateExperience(int value)
     {
         currentExperience += value;
-        
+
         if (currentExperience - _previousExperience < 0) currentLevel--;
         if (_nextExperience - currentExperience < 0) currentLevel++;
         if (currentLevel < 0) currentLevel = 0;
@@ -54,8 +56,34 @@ public class HeroData : ScriptableObject
         remainingExperience = _nextExperience - currentExperience;
     }
 
-    public void HealHero(int value) => currentHealth = Mathf.Clamp(value, 0, maxHealth);
-    
+    public void SetHealthBar(HP_BAR hp_bar)
+    {
+        health_bar = hp_bar;
+        health_bar.SetMaxHealth(maxHealth);
+    }
+
+    public void HealHero(int value)
+    {
+        currentHealth = Mathf.Clamp(value, 0, maxHealth);
+        health_bar.SetHealth(currentHealth);
+    }
+
+    public void GetDamage(int damage)
+    {
+        currentHealth -= damage;
+        health_bar.SetHealth(currentHealth);
+    }
+
+    public void AcquireItem(ItemObject item)
+    {
+        acquiredItems.Add(item);
+        foreach (ItemObject.Stat stat in item.stats)
+        {
+            if (stat.statName == ItemStats.Stats.Damage) currentDamage += (int)stat.statValue;
+        }
+
+    }
+
     [CustomEditor(typeof(HeroData))]
     private class HeroDataEditor : Editor
     {

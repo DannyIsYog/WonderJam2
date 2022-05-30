@@ -12,19 +12,12 @@ public class EnemyObject : StructureObject
     [Tooltip("Seconds between each attack")]
     public float attackSpeed = 1;
     public AnimationCurve experienceWhenKilled;
-
-    public int level;
-    public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(level);
+    public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(GameManager.instance.enemyLevel);
     public int DroppedMoney => Random.Range(0, 20);
 
     private void Awake()
     {
         type = Type.Enemy;
-    }
-
-    public void IncreaseLevel(int i)
-    {
-        level += i;
     }
 
     [CustomEditor(typeof(EnemyObject))]

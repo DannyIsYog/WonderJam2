@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private HeroData heroData;
     [SerializeField] private TextMeshProUGUI goldText;
 
+    public int enemyLevel = 1;
+
+    public HP_BAR hp_bar;
+
     public static GameManager instance { get; private set; }
 
     private readonly Dictionary<StructureObject.Type, StructureObject> _structureDic = new();
@@ -31,6 +35,7 @@ public class GameManager : MonoBehaviour
             _structureDic[structureObj.type] = structureObj;
 
         InvokeRepeating(nameof(CreateEnemy), 2, 2);
+        heroData.SetHealthBar(hp_bar);
     }
 
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
@@ -58,6 +63,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateMoney() => goldText.text = heroData.money + " $";
+
+    public void increaseEnemyLevel(int i)
+    {
+        enemyLevel += i;
+    }
 }
 
 namespace CustomArrayExtensions

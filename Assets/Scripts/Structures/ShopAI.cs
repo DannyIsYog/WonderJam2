@@ -13,7 +13,7 @@ public class ShopAI : MonoBehaviour
     public static ShopAI instance;
 
     private Dictionary<Stats, float> _weights = new();
-    
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -25,16 +25,17 @@ public class ShopAI : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        Stats[] allStats = (Stats[]) System.Enum.GetValues(typeof(Stats));
+        Stats[] allStats = (Stats[])System.Enum.GetValues(typeof(Stats));
         foreach (Stats stat in allStats)
         {
             _weights.Add(stat, Random.value < _discardRate ? 0 : Random.Range(-1f, 1f));
         }
     }
 
-    private float GetValue(ItemObject item) {
+    private float GetValue(ItemObject item)
+    {
         float value = 0;
-        
+
         foreach (ItemObject.Stat stat in item.stats)
         {
             if (_weights.ContainsKey(stat.statName))
@@ -44,10 +45,13 @@ public class ShopAI : MonoBehaviour
         return value;
     }
 
-    public void BuyItems(List<ItemObject> itemsInShop) {
+    public void BuyItems(List<ItemObject> itemsInShop)
+    {
+        Debug.Log("Buying items");
         List<ItemObject> items = new();
         foreach (ItemObject item in itemsInShop)
         {
+            Debug.Log(GetValue(item));
             if (GetValue(item) > 0 && _heroData.money >= item.price)
                 items.Add(item);
         }
@@ -60,7 +64,7 @@ public class ShopAI : MonoBehaviour
             if (money >= item.price)
             {
                 money -= item.price;
-                _heroData.acquiredItems.Add(item);
+                _heroData.AcquireItem(item);
             }
             else
             {
