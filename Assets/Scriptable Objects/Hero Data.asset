@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHealth: 100
   baseDamage: 15
   baseAttackSpeed: 0.5
+  money: 403
   experienceLevelCurve:
     serializedVersion: 2
     m_Curve:
@@ -41,9 +42,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   acquiredItems: []
-  currentHealth: 100
+  currentHealth: 163
   currentDamage: 15
   currentAttackSpeed: 0.5
-  currentExperience: 0
-  remainingExperience: 2
-  currentLevel: 0
+  currentExperience: 19
+  remainingExperience: 9
+  currentLevel: 2

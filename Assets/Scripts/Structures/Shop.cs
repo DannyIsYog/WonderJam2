@@ -11,11 +11,11 @@ public class Shop : MonoBehaviour
     [SerializeField] private ItemObject[] items;
     [SerializeField] private Slot[] shopSlots;
 
-    public List<ItemObject> CurrentItemsInShop = new();
+    public List<ItemObject> currentItemsInShop = new();
 
     private List<int> randList = new();
     private float time;
-    
+
     private void OnEnable()
     {
         time = timeUntilClose;
@@ -27,13 +27,15 @@ public class Shop : MonoBehaviour
             randList.Add(rand);
             
             ItemObject item = items[rand];
-            CurrentItemsInShop.Add(item);
+            currentItemsInShop.Add(item);
             slot.imageObj.sprite = item.sprite;
             slot.textNameObj.text = item.itemName;
             slot.textStatsObj.text = "";
             foreach (ItemObject.Stat itemStat in item.stats)
                 slot.textStatsObj.text += itemStat.statName + ": " + itemStat.statValue + "\n";
         }
+        
+        ShopAI.instance.BuyItems(currentItemsInShop);
     }
 
     private void Update()
@@ -45,6 +47,7 @@ public class Shop : MonoBehaviour
     private void OnDisable()
     {
         randList = new List<int>();
+        currentItemsInShop.Clear();
     }
 
     [Serializable]

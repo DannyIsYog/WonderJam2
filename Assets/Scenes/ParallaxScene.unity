@@ -4796,8 +4796,9 @@ MonoBehaviour:
   timeUntilClose: 3
   items:
   - {fileID: 11400000, guid: 139cfcb782ca188499a6379c39ceb5c5, type: 2}
-  - {fileID: 11400000, guid: 139cfcb782ca188499a6379c39ceb5c5, type: 2}
-  - {fileID: 11400000, guid: 139cfcb782ca188499a6379c39ceb5c5, type: 2}
+  - {fileID: 11400000, guid: 20c3df6fc7221a547be5167a953a083a, type: 2}
+  - {fileID: 11400000, guid: d58a096e69a3a254e828e83b81c9ed14, type: 2}
+  - {fileID: 11400000, guid: 053777ca65ca7254e865f55dc20c436e, type: 2}
   shopSlots:
   - imageObj: {fileID: 1103723530}
     textNameObj: {fileID: 170662481}
@@ -4808,6 +4809,7 @@ MonoBehaviour:
   - imageObj: {fileID: 902221182}
     textNameObj: {fileID: 301005555}
     textStatsObj: {fileID: 807328534}
+  currentItemsInShop: []
 --- !u!1 &1992233079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066854576}
   - component: {fileID: 2066854575}
+  - component: {fileID: 2066854577}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -5010,6 +5013,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066854577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066854574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e4e7aa642914003a2cc96438ba3f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _discardRate: 0.3
+  _heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
 --- !u!1 &2141173081
 GameObject:
   m_ObjectHideFlags: 0

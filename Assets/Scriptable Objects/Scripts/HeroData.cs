@@ -33,7 +33,7 @@ public class HeroData : ScriptableObject
         currentExperience = currentLevel = _previousExperience = 0;
         _maxLevel = (int)experienceLevelCurve[experienceLevelCurve.length - 1].time;
         money = 0;
-        acquiredItems.Clear();
+        acquiredItems = new List<ItemObject>();
         UpdateExperience(0);
     }
 

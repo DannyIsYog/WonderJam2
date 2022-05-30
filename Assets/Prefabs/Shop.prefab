@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4615699299536330547}
   - component: {fileID: 4615699299536330546}
   - component: {fileID: 4615699299536330550}
-  - component: {fileID: 4969781297892645380}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -130,16 +129,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
---- !u!114 &4969781297892645380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4615699299536330548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e4e7aa642914003a2cc96438ba3f21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _discardRate: 0.3

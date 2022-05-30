@@ -10,14 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9a299123aa4e4aa4ab45a4ad816a8d, type: 3}
-  m_Name: Knife
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  itemName: Butter Knife
-  sprite: {fileID: 21300000, guid: aa63456166df0944a86294d4ee244f05, type: 3}
+  itemName: Sword
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   type: 1
-  stats:
-  - statName: 4
-    statValue: 20
-  - statName: 5
-    statValue: 5
-  price: 20
+  stats: []
+  price: 30

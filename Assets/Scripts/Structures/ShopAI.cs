@@ -2,27 +2,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using static ItemStats;
+using Random = UnityEngine.Random;
 
 public class ShopAI : MonoBehaviour
 {
     [SerializeField] private float _discardRate = 0.3f;
-    private Dictionary<Stats, float> _weights;
-
     [SerializeField] private HeroData _heroData;
-    private Shop _shop;
+    // [SerializeField] private Shop _shop;
 
-    private void Start()
+    public static ShopAI instance;
+
+    private Dictionary<Stats, float> _weights = new();
+    
+    private void Awake()
     {
-        _shop = GetComponent<Shop>();
+        if (instance == null) instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         Stats[] allStats = (Stats[]) System.Enum.GetValues(typeof(Stats));
-        _weights = new Dictionary<Stats, float>();
         foreach (Stats stat in allStats)
         {
             _weights.Add(stat, Random.value < _discardRate ? 0 : Random.Range(-1f, 1f));
         }
     }
 
-    float GetValue(ItemObject item) {
+    private float GetValue(ItemObject item) {
         float value = 0;
         
         foreach (ItemObject.Stat stat in item.stats)
@@ -34,9 +44,9 @@ public class ShopAI : MonoBehaviour
         return value;
     }
 
-    public void BuyItems() {
-        List<ItemObject> items = new List<ItemObject>();
-        foreach (ItemObject item in _shop.CurrentItemsInShop)
+    public void BuyItems(List<ItemObject> itemsInShop) {
+        List<ItemObject> items = new();
+        foreach (ItemObject item in itemsInShop)
         {
             if (GetValue(item) > 0 && _heroData.money >= item.price)
                 items.Add(item);
@@ -59,5 +69,6 @@ public class ShopAI : MonoBehaviour
         }
 
         _heroData.money = money;
+        GameManager.instance.UpdateMoney();
     }
 }
