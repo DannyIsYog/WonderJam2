@@ -2,6 +2,7 @@
 using CustomArrayExtensions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateEnemy()
     {
+        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
         if (Mathf.Approximately(heroData.moveSpeed, 0f)) return;
         CreateStructure(enemies.GetRandom());
     }
