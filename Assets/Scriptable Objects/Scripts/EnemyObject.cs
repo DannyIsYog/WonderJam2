@@ -13,7 +13,7 @@ public class EnemyObject : StructureObject
     public float attackSpeed = 1;
     public AnimationCurve experienceWhenKilled;
     public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(GameManager.instance.enemyLevel);
-    public int DroppedMoney => Random.Range(0, 20);
+    public int DroppedMoney => Random.Range(1 * GameManager.instance.enemyLevel, 20 + 2 * GameManager.instance.enemyLevel);
 
     private void Awake()
     {

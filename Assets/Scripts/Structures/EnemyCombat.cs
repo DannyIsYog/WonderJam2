@@ -20,7 +20,7 @@ public class EnemyCombat : MonoBehaviour
     private void Start()
     {
         _enemyObject = (EnemyObject)GetComponent<Structure>().StructureObject;
-        _enemyHealth = _enemyObject.maxHealth;
+        _enemyHealth = _enemyObject.maxHealth + 5 * GameManager.instance.enemyLevel;
         _enemyHPBar.SetMaxHealth(_enemyObject.maxHealth);
         _heroData = _enemyObject.heroData;
         _enemyDamage = _enemyObject.baseDamage + 2 * GameManager.instance.enemyLevel;

@@ -64,6 +64,7 @@ public class HeroData : ScriptableObject
 
     public void HealHero(int value)
     {
+        maxHealth = maxHealth + 10 * GameManager.instance.enemyLevel;
         currentHealth = Mathf.Clamp(value, 0, maxHealth);
         health_bar.SetHealth(currentHealth);
     }
