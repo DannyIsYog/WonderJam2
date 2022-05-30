@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be9a299123aa4e4aa4ab45a4ad816a8d, type: 3}
-  m_Name: Potato
+  m_Name: Sexy_Dagger
   m_EditorClassIdentifier: 
-  itemName: Potato
-  sprite: {fileID: 21300000, guid: fd3fbe1da51a22e4b98e4dd7eef6176b, type: 3}
-  type: 0
-  stats: []
-  price: 2
+  itemName: Sexy Dagger
+  sprite: {fileID: 21300000, guid: 4e27c4b0fb3975b4a992d74cd09ac6f7, type: 3}
+  type: 1
+  stats:
+  - statName: 4
+    statValue: 1
+  - statName: 2
+    statValue: 1000
+  price: 30
