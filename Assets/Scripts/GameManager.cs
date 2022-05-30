@@ -42,10 +42,12 @@ public class GameManager : MonoBehaviour
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
 
     public void CreateBoss() => CreateStructure(StructureObject.Type.Boss);
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void CreateEnemy()
     {
-        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
         if (Mathf.Approximately(heroData.moveSpeed, 0f)) return;
         CreateStructure(enemies.GetRandom());
     }
