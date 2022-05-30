@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
         InvokeRepeating(nameof(CreateEnemy), 2, 2);
         heroData.SetHealthBar(hp_bar);
+        UpdateMoney();
     }
 
     public void CreateBlacksmith() => CreateStructure(StructureObject.Type.Blacksmith);
