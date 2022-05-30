@@ -20,6 +20,7 @@ public class EnemyObject : StructureObject
         type = Type.Enemy;
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(EnemyObject))]
     private class HeroDataEditor : Editor
     {
@@ -36,4 +37,5 @@ public class EnemyObject : StructureObject
             }
         }
     }
+#endif
 }

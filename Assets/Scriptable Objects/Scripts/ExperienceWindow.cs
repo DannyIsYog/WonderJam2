@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 public class ExperienceWindow : EditorWindow
@@ -24,7 +25,8 @@ public class ExperienceWindow : EditorWindow
             EditorGUILayout.LabelField((int)_curve.Evaluate(i) + " XP");
             EditorGUILayout.EndHorizontal();
         }
-            
+
         EditorGUILayout.EndScrollView();
     }
 }
+#endif

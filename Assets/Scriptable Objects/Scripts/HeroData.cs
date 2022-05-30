@@ -84,7 +84,7 @@ public class HeroData : ScriptableObject
         }
 
     }
-
+#if UNITY_EDITOR
     [CustomEditor(typeof(HeroData))]
     private class HeroDataEditor : Editor
     {
@@ -100,4 +100,5 @@ public class HeroData : ScriptableObject
             }
         }
     }
+#endif
 }

@@ -23,6 +23,7 @@ public class GameEvent : ScriptableObject
         _listeners.Remove(listener);
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(GameEvent))]
     private class GameEventEditor : Editor
     {
@@ -35,4 +36,5 @@ public class GameEvent : ScriptableObject
                 gameEvent.Raise();
         }
     }
+#endif
 }
