@@ -32,7 +32,7 @@ public class Shop : MonoBehaviour
             slot.textNameObj.text = item.itemName;
             slot.textStatsObj.text = "";
             foreach (ItemObject.Stat itemStat in item.stats)
-                slot.textStatsObj.text += itemStat.statName + ": " + itemStat.statValue + "\n";
+                slot.textStatsObj.text += itemStat.statType + ": " + itemStat.statValue + "\n";
         }
         
         ShopAI.instance.BuyItems(currentItemsInShop);

@@ -69,7 +69,7 @@ public class HeroData : ScriptableObject
         health_bar.SetHealth(currentHealth);
     }
 
-    public void GetDamage(int damage)
+    public void DealDamage(int damage)
     {
         currentHealth -= damage;
         health_bar.SetHealth(currentHealth);
@@ -80,7 +80,7 @@ public class HeroData : ScriptableObject
         acquiredItems.Add(item);
         foreach (ItemObject.Stat stat in item.stats)
         {
-            if (stat.statName == ItemStats.Stats.Damage) currentDamage += (int)stat.statValue;
+            if (stat.statType == ItemStats.Stats.Damage) currentDamage += (int)stat.statValue;
         }
 
     }

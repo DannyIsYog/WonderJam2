@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6d6d0eae825b434186b2f0e9bdb11d0, type: 3}
-  m_Name: horde
+  m_Name: ShopCard
   m_EditorClassIdentifier: 
   cardCost: 0
   cardLevel: 0
-  Slot: 0
+  slot: 0
+  structureObj: {fileID: 11400000, guid: c4e6ecabc7a90fc4e80c191b064f444d, type: 2}
+  cardPrefab: {fileID: 0}
+  level: {fileID: 0}
+  cost: {fileID: 0}

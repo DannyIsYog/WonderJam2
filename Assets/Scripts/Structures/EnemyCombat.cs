@@ -61,7 +61,7 @@ public class EnemyCombat : MonoBehaviour
         else
         {
             animator.Play("Attack");
-            _heroData.GetDamage(_enemyDamage);
+            _heroData.DealDamage(_enemyDamage);
             _timeEnemy = _enemyObject.attackSpeed;
             if (_heroData.currentHealth <= 0) HeroDied();
         }

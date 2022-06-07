@@ -16,8 +16,8 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4e27c4b0fb3975b4a992d74cd09ac6f7, type: 3}
   type: 1
   stats:
-  - statName: 4
+  - statType: 4
     statValue: 1
-  - statName: 2
+  - statType: 2
     statValue: 1000
   price: 30

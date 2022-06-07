@@ -38,8 +38,8 @@ public class ShopAI : MonoBehaviour
 
         foreach (ItemObject.Stat stat in item.stats)
         {
-            if (_weights.ContainsKey(stat.statName))
-                value += stat.statValue * _weights[stat.statName];
+            if (_weights.ContainsKey(stat.statType))
+                value += stat.statValue * _weights[stat.statType];
         }
 
         return value;

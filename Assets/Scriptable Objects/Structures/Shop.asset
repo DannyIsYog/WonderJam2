@@ -18,3 +18,4 @@ MonoBehaviour:
   OnHeroCollision: {fileID: 11400000, guid: 12890e577fc9cc742a1864a39f689b83, type: 2}
   minDropRate: 0.3
   maxDropRate: 0.5
+  cardSprite: {fileID: 21300000, guid: 73e47fa97a8db784d9f8b9092424bb80, type: 3}
