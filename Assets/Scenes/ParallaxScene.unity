@@ -2289,7 +2289,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.44143295, y: -0.6993141}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2300,7 +2300,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 125.5, y: 159.8}
+  m_Size: {x: 69.8178, y: 68.51951}
   m_EdgeRadius: 0
 --- !u!1 &742127721
 GameObject:
@@ -2827,7 +2827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.29504395, y: 0}
+  m_AnchoredPosition: {x: 0.29492188, y: 0}
   m_SizeDelta: {x: 34.7899, y: 293.26}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &914634589
@@ -3779,6 +3779,7 @@ GameObject:
   - component: {fileID: 1169172043}
   - component: {fileID: 1169172042}
   - component: {fileID: 1169172045}
+  - component: {fileID: 1169172048}
   - component: {fileID: 1169172046}
   - component: {fileID: 1169172047}
   m_Layer: 0
@@ -3865,6 +3866,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
+        m_TargetAssemblyTypeName: HeroData, Assembly-CSharp
+        m_MethodName: StopMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1169172046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,6 +3919,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 784a48dae210c5448a1123c2efe02ee2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
+        m_TargetAssemblyTypeName: HeroData, Assembly-CSharp
+        m_MethodName: ContinueMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1169172048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169172041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9dafffc8bdd627499f3bff08fa282b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1bb5d1e03bd1c6945a5c43052d1ddf07, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -5486,7 +5527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -38, y: 49.2}
+  m_AnchoredPosition: {x: -38, y: 49.19995}
   m_SizeDelta: {x: 160, y: 56.39911}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1802362548
@@ -5812,19 +5853,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilClose: 3
+  OnShopLeave: {fileID: 11400000, guid: 1bb5d1e03bd1c6945a5c43052d1ddf07, type: 2}
   items:
   - {fileID: 11400000, guid: 139cfcb782ca188499a6379c39ceb5c5, type: 2}
   - {fileID: 11400000, guid: 20c3df6fc7221a547be5167a953a083a, type: 2}
   - {fileID: 11400000, guid: d58a096e69a3a254e828e83b81c9ed14, type: 2}
   - {fileID: 11400000, guid: 053777ca65ca7254e865f55dc20c436e, type: 2}
   shopSlots:
-  - imageObj: {fileID: 1103723530}
+  - itemObj: {fileID: 1153098113}
+    imageObj: {fileID: 1103723530}
     textNameObj: {fileID: 170662481}
     textStatsObj: {fileID: 122785271}
-  - imageObj: {fileID: 1341907242}
+  - itemObj: {fileID: 322453259}
+    imageObj: {fileID: 1341907242}
     textNameObj: {fileID: 92895803}
     textStatsObj: {fileID: 1124720441}
-  - imageObj: {fileID: 902221182}
+  - itemObj: {fileID: 790064468}
+    imageObj: {fileID: 902221182}
     textNameObj: {fileID: 301005555}
     textStatsObj: {fileID: 807328534}
   currentItemsInShop: []
@@ -6250,7 +6295,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -392.32}
+  m_Offset: {x: 0, y: -317.32288}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6261,5 +6306,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1920, y: 788.1}
+  m_Size: {x: 1920, y: 638.1057}
   m_EdgeRadius: 0

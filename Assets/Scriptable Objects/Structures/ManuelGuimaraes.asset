@@ -16,8 +16,7 @@ MonoBehaviour:
   type: 2
   prefab: {fileID: 1611440720903825675, guid: 3e9100d8a3085d84fbc9bfd01193eafa, type: 3}
   OnHeroCollision: {fileID: 11400000, guid: f598579161ae03b4c9f19c5f705e8173, type: 2}
-  minDropRate: 0
-  maxDropRate: 0
+  cardSprite: {fileID: 0}
   enemyName: Manuel Guimaraes
   maxHealth: 50
   baseDamage: 2
@@ -46,4 +45,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  level: 0
+  cardDropRates:
+  - type: 4
+    dropRate: 0.5
+    priority: 1
+  - type: 5
+    dropRate: 0.2
+    priority: 0

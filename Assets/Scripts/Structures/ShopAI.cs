@@ -47,7 +47,6 @@ public class ShopAI : MonoBehaviour
 
     public void BuyItems(List<ItemObject> itemsInShop)
     {
-        Debug.Log("Buying items");
         List<ItemObject> items = new();
         foreach (ItemObject item in itemsInShop)
         {

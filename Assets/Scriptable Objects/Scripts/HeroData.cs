@@ -14,7 +14,8 @@ public class HeroData : ScriptableObject
     public AnimationCurve experienceLevelCurve;
     public List<ItemObject> acquiredItems;
 
-    [Header("Runtime variables")]
+    [Header("Runtime variables")] 
+    public int currentMaxHealth;
     public int currentHealth;
     public int currentDamage;
     public float currentAttackSpeed;
@@ -29,6 +30,7 @@ public class HeroData : ScriptableObject
     private void OnEnable()
     {
         moveSpeed = -5;
+        currentMaxHealth = maxHealth;
         currentHealth = maxHealth;
         currentDamage = baseDamage;
         currentAttackSpeed = baseAttackSpeed;
@@ -64,9 +66,14 @@ public class HeroData : ScriptableObject
 
     public void HealHero(int value)
     {
-        maxHealth = maxHealth + 10 * GameManager.instance.enemyLevel;
-        currentHealth = Mathf.Clamp(value, 0, maxHealth);
+        currentMaxHealth = maxHealth + 10 * GameManager.instance.enemyLevel;
+        currentHealth = Mathf.Clamp(value, 0, currentMaxHealth);
         health_bar.SetHealth(currentHealth);
+    }
+
+    public void HealHero()
+    {
+        HealHero(currentMaxHealth);
     }
 
     public void DealDamage(int damage)

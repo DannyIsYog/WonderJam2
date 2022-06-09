@@ -7,24 +7,25 @@ using Random = UnityEngine.Random;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private float timeUntilClose = 3;
+    [SerializeField] private float timeUntilClose = 5;
+    [SerializeField] private GameEvent OnShopLeave;
     [SerializeField] private ItemObject[] items;
     [SerializeField] private Slot[] shopSlots;
 
     public List<ItemObject> currentItemsInShop = new();
 
-    private List<int> randList = new();
-    private float time;
+    private List<int> _randList = new();
+    private float _timer;
 
     private void OnEnable()
     {
-        time = timeUntilClose;
+        _timer = timeUntilClose;
         foreach (Slot slot in shopSlots)
         {
             int rand = Random.Range(0, shopSlots.Length);
-            while (randList.Contains(rand))
+            while (_randList.Contains(rand))
                 rand = Random.Range(0, shopSlots.Length);
-            randList.Add(rand);
+            _randList.Add(rand);
             
             ItemObject item = items[rand];
             currentItemsInShop.Add(item);
@@ -40,19 +41,21 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
-        if (time > 0) time -= Time.deltaTime;
+        if (_timer > 0) _timer -= Time.deltaTime;
         else gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
-        randList = new List<int>();
+        _randList = new List<int>();
         currentItemsInShop.Clear();
+        OnShopLeave.Raise();
     }
 
     [Serializable]
     private class Slot
     {
+        public GameObject itemObj;
         public Image imageObj;
         public TextMeshProUGUI textNameObj;
         public TextMeshProUGUI textStatsObj;

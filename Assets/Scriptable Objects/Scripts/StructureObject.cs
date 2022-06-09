@@ -17,7 +17,5 @@ public class StructureObject : ScriptableObject
     public Type type;
     public GameObject prefab;
     public GameEvent OnHeroCollision;
-    public float minDropRate;
-    public float maxDropRate;
     public Sprite cardSprite;
 }

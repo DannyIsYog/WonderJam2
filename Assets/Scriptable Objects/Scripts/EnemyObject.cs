@@ -12,12 +12,22 @@ public class EnemyObject : StructureObject
     [Tooltip("Seconds between each attack")]
     public float attackSpeed = 1;
     public AnimationCurve experienceWhenKilled;
+    public CardDropRates[] cardDropRates;
     public int CurrentExperienceWhenKilled => (int)experienceWhenKilled.Evaluate(GameManager.instance.enemyLevel);
     public int DroppedMoney => Random.Range(1 * GameManager.instance.enemyLevel, 20 + 2 * GameManager.instance.enemyLevel);
 
     private void Awake()
     {
         type = Type.Enemy;
+    }
+
+    [Serializable]
+    public class CardDropRates
+    {
+        public Type type;
+        public float dropRate;
+        [Tooltip("Lower number, bigger priority")]
+        public int priority;
     }
 
 #if UNITY_EDITOR

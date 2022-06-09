@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4175140771745081392}
   - component: {fileID: 1894318961310394773}
   - component: {fileID: 5341615388966754521}
+  - component: {fileID: 2795948322801306095}
   m_Layer: 0
   m_Name: Hospital
   m_TagString: Untagged
@@ -94,18 +95,45 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
-        m_TargetAssemblyTypeName: HeroData, Assembly-CSharp
-        m_MethodName: HealHero
-        m_Mode: 3
+      - m_Target: {fileID: 2795948322801306095}
+        m_TargetAssemblyTypeName: SpawnNumberPopup, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Health Restored
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 887e0cb9f525e974d93c371b2b8e1709, type: 2}
+        m_TargetAssemblyTypeName: HeroData, Assembly-CSharp
+        m_MethodName: HealHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2795948322801306095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943361698793646252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf8880c2f4d4b90b023de8909fe8027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberPopupPrefab: {fileID: 8139229277795748356, guid: d947ccac5cb09914988942ff0a24ee98, type: 3}
+  textColor: {r: 0.21550356, g: 0.745283, b: 0, a: 1}
+  fontSize: 0.7
 --- !u!1 &4418706501755475348
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 962748545466911837}
   - component: {fileID: 1611440720903825672}
   - component: {fileID: 7370891190946544281}
+  - component: {fileID: 484151904189950647}
   m_Layer: 0
   m_Name: ManuelGuimaraes
   m_TagString: Untagged
@@ -116,6 +117,21 @@ MonoBehaviour:
   OnHeroDied: {fileID: 11400000, guid: 098409af3d1aa7245945d0d422fd8639, type: 2}
   animator: {fileID: 962748545466911837}
   _enemyHPBar: {fileID: 335865247069842812}
+--- !u!114 &484151904189950647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611440720903825675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf8880c2f4d4b90b023de8909fe8027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberPopupPrefab: {fileID: 8139229277795748356, guid: d947ccac5cb09914988942ff0a24ee98, type: 3}
+  textColor: {r: 0.754717, g: 0, b: 0, a: 1}
+  fontSize: 0.7
 --- !u!1 &4257573290718372179
 GameObject:
   m_ObjectHideFlags: 0
