@@ -47,8 +47,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   cardDropRates:
   - type: 4
-    dropRate: 0.5
+    dropRate: 0.6
     priority: 1
   - type: 5
-    dropRate: 0.2
+    dropRate: 0.3
     priority: 0

@@ -8,11 +8,10 @@ public class ShopAI : MonoBehaviour
 {
     [SerializeField] private float _discardRate = 0.3f;
     [SerializeField] private HeroData _heroData;
-    // [SerializeField] private Shop _shop;
 
     public static ShopAI instance;
 
-    private Dictionary<Stats, float> _weights = new();
+    private readonly Dictionary<Stats, float> _weights = new();
 
     private void Awake()
     {
@@ -27,9 +26,7 @@ public class ShopAI : MonoBehaviour
 
         Stats[] allStats = (Stats[])System.Enum.GetValues(typeof(Stats));
         foreach (Stats stat in allStats)
-        {
             _weights.Add(stat, Random.value < _discardRate ? 0 : Random.Range(-1f, 1f));
-        }
     }
 
     private float GetValue(ItemObject item)
@@ -50,7 +47,6 @@ public class ShopAI : MonoBehaviour
         List<ItemObject> items = new();
         foreach (ItemObject item in itemsInShop)
         {
-            Debug.Log(GetValue(item));
             if (GetValue(item) > 0 && _heroData.money >= item.price)
                 items.Add(item);
         }
@@ -65,10 +61,7 @@ public class ShopAI : MonoBehaviour
                 money -= item.price;
                 _heroData.AcquireItem(item);
             }
-            else
-            {
-                break;
-            }
+            else break;
         }
 
         _heroData.money = money;

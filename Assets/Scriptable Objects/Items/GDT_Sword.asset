@@ -18,6 +18,6 @@ MonoBehaviour:
   stats:
   - statType: 4
     statValue: 100
-  - statType: 3
+  - statType: 2
     statValue: 500
   price: 5000
